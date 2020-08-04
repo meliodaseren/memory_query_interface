@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Horizon",
     "workbench.iconTheme": "vscode-icons",
     "workbench.sideBar.location": "left",
     "editor.rulers": [
@@ -7,8 +7,8 @@
     ],
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "editor.fontSize": 18,
-    "editor.fontFamily": "'DisposableDroid BB', Consolas, 'Courier New', 'monospace', 'SourceCodePro-Medium', 'ＭＳ ゴシック', MS Gothic",
+    "editor.fontSize": 20,
+    "editor.fontFamily": "'DisposableDroid BB', Consolas, 'Courier New', 'monospace', 'SourceCodePro-Medium'",
     "vim.disableAnnoyingNeovimMessage": true,
 
     /* Python */

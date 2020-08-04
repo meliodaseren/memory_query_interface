@@ -37,9 +37,9 @@ def Application(window):
     cmp_var.trace_add('write', lambda *args: print(cmp_var.get()))
     cmp_var.set(cmp_list[0])
     cmp_label = tk.Label(sel_frame, text="Compiler: ")
-    cmp_label.grid(row=0, column=0)
+    cmp_label.grid(row=1, column=0)
     cmp_opt = tk.OptionMenu(sel_frame, cmp_var, *cmp_list)
-    cmp_opt.grid(row=0, column=1)
+    cmp_opt.grid(row=1, column=1)
 
     #TODO: [2] Configuration
     cfg_frame = tk.LabelFrame(window, text='2. Configuration')
@@ -59,11 +59,10 @@ def Application(window):
     bw_var = tk.StringVar()
     bw_var.trace_add('write', lambda *args: print(bw_var.get()))
     bw_var.set(bw_list[0])
-    bw_label = tk.Label(sel_frame, text="Byte Write: ")
-    bw_label.grid(row=0, column=0)
-    bw_opt = tk.OptionMenu(sel_frame, bw_var, *bw_list)
-    bw_opt.grid(row=0, column=1)
-
+    bw_label = tk.Label(cfg_frame, text="Byte Write: ")
+    bw_label.grid(row=2, column=0)
+    bw_opt = tk.OptionMenu(cfg_frame, bw_var, *bw_list)
+    bw_opt.grid(row=2, column=1)
 
 
 if __name__ == '__main__':
