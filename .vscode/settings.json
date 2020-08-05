@@ -7,7 +7,7 @@
     ],
     "explorer.confirmDragAndDrop": false,
     "explorer.confirmDelete": false,
-    "editor.fontSize": 20,
+    "editor.fontSize": 18,
     "editor.fontFamily": "'DisposableDroid BB', Consolas, 'Courier New', 'monospace', 'SourceCodePro-Medium'",
     "vim.disableAnnoyingNeovimMessage": true,
 
