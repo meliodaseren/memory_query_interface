@@ -141,11 +141,14 @@ class Application(tk.Frame):
         #NOTE: [5] PPA : timing frame
         self.timing_frame = tk.LabelFrame(self.master, text='Timing')
         self.timing_frame.grid(row=5, column=0, sticky='NW')
+        self.timing_label = tk.Label(self.timing_frame, text="Timing: ")
+        self.timing_label.grid(row=0, column=0, sticky='W')
 
         #NOTE: [6] PPA : power frame
         self.power_frame = tk.LabelFrame(self.master, text='Power')
         self.power_frame.grid(row=5, column=1, sticky='NW')
-
+        self.power_label = tk.Label(self.power_frame, text='Power: ')
+        self.power_label.grid(row=0, column=0, sticky='W')
 
         #NOTE: --- Set default value, and trace user selection
         ## set default value
@@ -154,24 +157,6 @@ class Application(tk.Frame):
         default_compiler = list(self.proc_cmp_dict[default_proc])[0]
         self.cmp_var.set(default_compiler)
 
-        ## After click button -> update instance list
-        self.inst_pvt_dict = {
-            'n5compilerA_2KX4_B256M8': ['pvt1', 'pvt2'],
-            'n5compilerA_2KX4_B512M8': ['pvt3', 'pvt4'],
-            'n5compilerA_2KX4_B64M4': ['pvt5', 'pvt6']
-        }
-        self.inst_list = list(self.inst_pvt_dict.keys())
-        # self.inst_var.set(self.inst_list[0])
-        # for num, inst in enumerate(self.inst_list):
-        #     self.inst_opt = tk.Radiobutton(self.prev_frame,
-        #                                         variable=self.inst_var,
-        #                                         text=inst,
-        #                                         value=inst)
-        #     self.inst_opt.grid(row=num, column=1, sticky='W')
-
-        # pvt_list = self.inst_pvt_dict[self.inst_var.get()]
-        # self.pvt_var.set(pvt_list[0])
-        
         ## trace value by user select
         self.proc_var.trace_add('write', self.update_cmp_menu)
         self.inst_var.trace_add('write', self.update_pvt_menu)
@@ -199,6 +184,10 @@ class Application(tk.Frame):
         """
         Based on instance selection to update pvt list
         """
+        #HACK: hacking instance-pvt dictionary
+        self.inst_pvt_dict[self.inst_var.get()] = ["pvvt1", "pvvt2"]
+        print(f'{msg.debug} {self.inst_var.get()} {self.inst_pvt_dict[self.inst_var.get()]}')
+
         pvt_list = self.inst_pvt_dict[self.inst_var.get()]
         self.pvt_var.set(pvt_list[0])
         menu = self.pvt_opt['menu']
@@ -206,26 +195,36 @@ class Application(tk.Frame):
         for pvt in pvt_list:
             menu.add_command(label=pvt, command=lambda nation=pvt: self.pvt_var.set(nation))
 
-    def query_instance(self):
+    def query_instance(self, *args):
+        """
+        Click button to query memory instance and create radiobutton
+        """
+        self.remove_instance_radiobutton()
         self.process = self.proc_var.get()
         self.compiler = self.cmp_var.get()
         self.word = self.word_entry.get()
         self.bit = self.bit_entry.get()
         self.bytewrite = self.bw_var.get()
+        # HACK: hacking bigdata path (input: process)        
         self.bigdata = 'bigdata path'
-        self.instance = ["n5compilerA", "n5compilerB"]
-        # for inst in self.instance:
-        #     self.inst_pvt_dict[inst] = ["pvvt1", "pvvt2"]
-        #     print(f'{inst}\n    {self.inst_pvt_dict[inst]}')
+        # HACK: hacking instance list (input: compiler, word, bit)
+        if self.process == 'n5' and self.compiler == 'n5compilerA':
+            self.instance = ["n5compilerA_2KX4_B256M8", "n5compilerA_2KX4_B512M8", "n5compilerA_2KX4_B64M4"]
+        elif self.process == 'n7' and self.compiler == 'n7compilerA':
+            self.instance = ["n7compilerA_2KX4_B256M8", "n7compilerA_2KX4_B512M8"]
         self.create_instance_radiobutton(self.instance)
 
-    def create_instance_radiobutton(self, inst_list):
+    def remove_instance_radiobutton(self, *args):
         ## Remove original radiobutton
+        ## https://stackoverflow.com/questions/23189610/remove-widgets-from-grid-in-tkinter
+        self.instance = ""
         for radio_opt in self.prev_frame.grid_slaves():
             if int(radio_opt.grid_info()["row"]) > 0:
                 radio_opt.grid_forget()
+
+    def create_instance_radiobutton(self, inst_list, *args):
         ## Create selected instance radiobutton
-        for num, inst in enumerate(self.inst_list):
+        for num, inst in enumerate(inst_list):
             self.inst_opt = tk.Radiobutton(self.prev_frame, variable=self.inst_var, text=inst, value=inst)
             self.inst_opt.grid(row=num+1, column=0, sticky='W')
 
