@@ -65,26 +65,46 @@
     "terminal.integrated.fontSize": 13,
     "terminal.integrated.fontFamily": "Consolas",
     // "terminal.integrated.fontFamily": "Monaco, Menlo, 'Courier New', monospace" // Mac
-    /*"workbench.colorCustomizations": {
-        "terminal.background":"#2B2B2B",
-        "terminal.foreground":"#E6E1DC",
-        "terminalCursor.background":"#E6E1DC",
-        "terminalCursor.foreground":"#E6E1DC",
-        "terminal.ansiBlack":"#2B2B2B",
-        "terminal.ansiBlue":"#6D9CBE",
-        "terminal.ansiBrightBlack":"#5A647E",
-        "terminal.ansiBrightBlue":"#6D9CBE",
-        "terminal.ansiBrightCyan":"#519F50",
-        "terminal.ansiBrightGreen":"#A5C261",
-        "terminal.ansiBrightMagenta":"#B6B3EB",
-        "terminal.ansiBrightRed":"#DA4939",
-        "terminal.ansiBrightWhite":"#F9F7F3",
-        "terminal.ansiBrightYellow":"#FFC66D",
-        "terminal.ansiCyan":"#519F50",
-        "terminal.ansiGreen":"#A5C261",
-        "terminal.ansiMagenta":"#B6B3EB",
-        "terminal.ansiRed":"#DA4939",
-        "terminal.ansiWhite":"#E6E1DC",
-        "terminal.ansiYellow":"#FFC66D"
-    }*/
+    "workbench.colorCustomizations": {
+        // Totally Transparent
+        // "editor.selectionHighlightBackground": "#ffffff00",
+        // "editor.findMatchHighlightBackground": "#ffffff00",
+        // Borders
+        "editor.findMatchBorder": "#ffff00",
+        "editor.findMatchHighlightBorder": "#e45615",
+        "editor.selectionHighlightBorder": "#ffffff",
+        "editor.lineHighlightBorder": "#383737",
+        // Selection
+        "editor.selectionBackground": "#0a073a",
+        "editor.wordHighlightBackground": "#0a073a",
+        // Misc
+        // "editorCursor.foreground": "#00ff00",
+        // "editor.lineHighlightBackground": "#181818",
+        // "editor.findMatchBackground": "#000000",
+        // Debugger
+        // "statusBar.debuggingBackground": "#410d18",
+        // "statusBar.debuggingForeground": "#dddddd" 
+
+        // Terminal
+        // "terminal.background":"#2B2B2B",
+        // "terminal.foreground":"#E6E1DC",
+        // "terminalCursor.background":"#E6E1DC",
+        // "terminalCursor.foreground":"#E6E1DC",
+        // "terminal.ansiBlack":"#2B2B2B",
+        // "terminal.ansiBlue":"#6D9CBE",
+        // "terminal.ansiBrightBlack":"#5A647E",
+        // "terminal.ansiBrightBlue":"#6D9CBE",
+        // "terminal.ansiBrightCyan":"#519F50",
+        // "terminal.ansiBrightGreen":"#A5C261",
+        // "terminal.ansiBrightMagenta":"#B6B3EB",
+        // "terminal.ansiBrightRed":"#DA4939",
+        // "terminal.ansiBrightWhite":"#F9F7F3",
+        // "terminal.ansiBrightYellow":"#FFC66D",
+        // "terminal.ansiCyan":"#519F50",
+        // "terminal.ansiGreen":"#A5C261",
+        // "terminal.ansiMagenta":"#B6B3EB",
+        // "terminal.ansiRed":"#DA4939",
+        // "terminal.ansiWhite":"#E6E1DC",
+        // "terminal.ansiYellow":"#FFC66D"
+    }
 }
