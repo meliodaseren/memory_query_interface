@@ -1,0 +1,10 @@
+{
+    "n5": {
+        "bigdata": "n5.db",
+        "cmp_list": "BigData/n5/cmp.list"
+    },
+    "n7": {
+        "bigdata": "n7.db",
+        "cmp_list": "BigData/n7/cmp.list"
+    }
+}
